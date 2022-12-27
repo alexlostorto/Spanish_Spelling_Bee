@@ -1,10 +1,8 @@
-# Spanish Spelling Bee #
-
-## Description ##
+<p align="center"><img width="100%" src="https://github.com/alexlostorto/Spanish_Spelling_Bee/raw/main/git_images/Spanish_Spelling_Bee.PNG" alt="lang image here" /></p>
 
 This is a single/multiplayer game used to improve the player's ability to translate and spell spanish words. This game is a test of concentration, speed, memory and translation ability.
 
-## Singleplayer ##
+## Singleplayer 
 
 One player faces away from the screen and the other player clicks the *GENERATE* button to generate a random spanish-english word combo.
 
@@ -12,7 +10,7 @@ The player facing the screen should then say the english word out loud while the
 
 It is best to use a timer and see how many words you can translate and spell correctly in 1 minute!
 
-## Multiplayer ##
+## Multiplayer 
 
 Cover the side of the screen that shows the word in spanish.
 
@@ -25,7 +23,7 @@ Uncover the spanish word and check if you got it correct!
 Soon you will be an expert at spelling spanish words!
 
 
-## Credits ##
+## Credits 
 
 Everything is coded by Alex lo Storto.
 
