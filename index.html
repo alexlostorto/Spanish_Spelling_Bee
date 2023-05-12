@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google Console Verification -->
+    <meta name="google-site-verification" content="Ypc_O50xyYcRsv6t5OlfQYcCYE6oPsvqoFYubJ__8UY" />
+
+    <!-- Default Settings -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <meta name="keywords" content="alexlostorto, Alex, Alex lo Storto, Alex Lo Storto, portfolio, portfolio website, Portfolio Website, programmer, coder, web developer, open source, papersss, past papers, past-papers, maths, GCSE, AQA, mark scheme, question paper, start-up, tech" />
+    <meta name="description" content="Papersss - finding GCSE past papers has never been easier!" />
+    <meta name="author" content="Alex lo Storto" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/universal.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Javascript -->
+    <script src="assets/js/component.js" defer></script>
+    <script src="assets/js/universal.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>Alex lo Storto</title>
+  </head>
+  <body>
+    <!-- Navbar  -->
+    <app-navbar></app-navbar>
+
+    <div class="body-container">
+      <!-- Splash Screen -->
+      <section class="main page">
+        <header class="header">
+          <h1 class="header-text fade">Spanish Spelling Bee</h1>
+          <p class="header-description fade">Learning Spanish has never been easier.</p>
+        </header>
+        <button id="play-button" class="button">
+          Play
+          <div class="button__horizontal"></div>
+          <div class="button__vertical"></div>
+        </button>
+        <div class="buttons">
+          <button id="sets-button" class="normal-button">Sets</button>
+          <button id="options-button" class="normal-button">Options</button>
+        </div>
+      </section>
+
+      <section class="learn page">
+        <div class="stats">
+          <div class="left">
+            <div class="exit-button" id="exit-button">Exit</div>
+          </div>
+          <div class="center">
+            <div id="timer">00:50</div>
+          </div>
+          <div class="right">
+            <div id="counter">1/4</div>
+          </div>
+        </div>
+        <section>
+          <div class="translations">
+            <div>
+              <h2>English</h2>
+              <p id="english-translation">Hello</p>
+            </div>
+            <div>
+              <h2>Spanish</h2>
+              <p id="spanish-translation">Hola</p>
+            </div>
+          </div>
+          <div class="answers">
+            <button id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="stats page">
+        <span class="exit-button">X</span>
+        <span>Coming soon! :)</span>
+      </section>
+
+      <section class="sets page">
+        <span class="exit-button">X</span>
+        <span>Coming soon! :)</span>
+      </section>
+
+      <section class="options page">
+        <span class="exit-button">X</span>
+        <span>Coming soon! :)</span>
+      </section>
+    </div>
+
+    <!-- Footer  -->
+    <app-footer></app-footer>
+
+    <!-- Custom cursor  -->
+    <div class="custom-cursor">
+      <div id="cursor" class="custom-cursor inner"></div>
+      <div class="custom-cursor outer"></div>
+    </div>
+  </body>
+</html>

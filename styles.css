@@ -1,0 +1,259 @@
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--white);
+    transition: ease-in-out 1s;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main.page {
+    display: flex;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+#play-button {
+    margin-top: 7vh;
+}
+
+.page > span {
+    font-size: 1.2rem;
+}
+
+.page > .exit-button {
+    font-size: 1.3rem;
+    font-weight: bold;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+.buttons {
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.normal-button {
+    --offset: 10px;
+    --border-size: 2px;
+    display: block;
+    position: relative;
+    padding: 1.5em 3em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--darkest);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    outline: none;
+    font-weight: bold;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+    transition: background 0.8s ease;
+}
+
+.normal-button:hover {
+    background: rgba(100, 0, 0, 0.03);
+}
+
+/* Learn page */
+
+.learn.page {
+    width: 100%;
+}
+
+.learn.page section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25vh;
+}
+
+.translations {
+    margin-top: 10vh;
+    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5rem;
+}
+
+.translations p {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border: 2px solid var(--darkest);
+}
+
+.translations h2 {
+    font-size: 2.5rem;
+}
+
+.answers {
+    display: flex;
+    align-items: center;
+}
+
+.answers button {
+    font-size: large;
+    display: block;
+    position: relative;
+    padding: 1.5em 3em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid var(--darkest);
+    background: transparent;
+    color: var(--darkest);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    outline: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.answers button:hover {
+    background: rgba(100, 0, 0, 0.03);
+}
+
+#yes-button {
+    border-right: none;
+}
+
+.learn .stats {
+    display: flex;
+    width: 100%;
+}
+
+.learn .stats > div {
+    display: inline-block;
+}
+
+.learn .stats > div > div {
+    text-align: center;
+}
+
+.learn .stats .left,
+.learn .stats .right {
+    flex: 1;
+}
+
+#timer {
+    font-size: 2rem;
+    padding: 2rem 0;
+    width: 12rem;
+    background-color: white;
+    border: 3px solid var(--darkest);
+    border-top: none;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+#counter {
+    float: left;
+    font-size: 2rem;
+    padding: 1rem 1rem;
+    background-color: white;
+    min-width: 5rem;
+    border: 3px solid var(--darkest);
+    border-top: none;
+    border-left: none;
+    border-bottom-right-radius: 2rem;
+}
+
+#exit-button {
+    float: right;
+    font-size: 2rem;
+    padding: 1rem 1.4rem;
+    background-color: white;
+    border: 3px solid var(--darkest);
+    border-top: none;
+    border-right: none;
+    border-bottom-left-radius: 2rem;
+}
+
+/*--------------------------------------------------------------
+8.0 MEDIA
+--------------------------------------------------------------*/
+
+@media (min-width: 800px) {
+}
+
+@media (max-width: 1000px) {
+}
+
+@media (max-width: 800px) {
+}
+
+@media (max-width: 500px) {
+    .buttons {
+        margin-top: 4rem;
+    }
+
+    #timer,
+    #counter,
+    #exit-button {
+        font-size: 1.5rem;
+    }
+
+    #counter,
+    #exit-button {
+        padding: 1rem;
+    }
+
+    #timer {
+        padding: 1.7rem;
+        width: 10rem;
+    }
+
+    .translations {
+        gap: 3rem;
+        flex-direction: column;
+    }
+
+    .translations h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .translations p {
+        margin-top: 1rem;
+        min-width: 50vw
+    }
+
+    .learn.page section {
+        margin-bottom: 22vh;
+    }
+
+    .answers {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .answers button {
+        flex: 1;
+        height: 5rem;
+    }
+}
