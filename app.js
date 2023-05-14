@@ -46,11 +46,17 @@ fadeIn(headerDescription, 500);
     |
     ------------------------------------------------------------*/
 
+const timer = new Timer(document.querySelector('#timer'));
+const englishWord = document.querySelector('#english-translation');
+const spanishWord = document.querySelector('#spanish-translation');
+let translations = null;
+
 // Buttons
 const playButton = document.querySelector('#play-button');
 const setsButton = document.querySelector('#sets-button');
 const optionsButton = document.querySelector('#options-button');
 const exitButtons = document.querySelectorAll('.exit-button');
+const learnExitButton = document.querySelector('#exit-button');
 const yesButton = document.querySelector('#yes-button');
 const noButton = document.querySelector('#no-button');
 
@@ -75,6 +81,30 @@ const pages = [mainPage, learnPage, statsPage, setsPage, optionsPage];
     |
     ------------------------------------------------------------*/
 
+async function getJSON() {
+    translations = await(await fetch('assets/translations/example.json')).json();
+    return translations[1].translations
+}
+
+async function startGame() {
+    translations = await getJSON();
+    nextTranslation();
+}
+
+function nextTranslation() {
+    if (translations.length == 0) {
+        showPage(mainPage);
+        timer.stop();
+        return
+    }
+
+    const index = Math.floor(Math.random() * translations.length);
+    const translation = translations[index];
+    englishWord.textContent = translation[0];
+    spanishWord.textContent = translation[1];
+    translations.splice(index, 1);
+}
+
 function showPage(page) {
     pages.forEach((pageItem) => {
         if (page != pageItem) {
@@ -97,8 +127,14 @@ function showPage(page) {
     |
     ------------------------------------------------------------*/
 
-playButton.addEventListener('click', () => {
+playButton.addEventListener('click', async () => {
     showPage(learnPage);
+    startGame();
+    let finished = await timer.start(60);
+
+    if (finished) {
+        showPage(mainPage);
+    }
 })
 
 setsButton.addEventListener('click', () => {
@@ -107,6 +143,19 @@ setsButton.addEventListener('click', () => {
 
 optionsButton.addEventListener('click', () => {
     showPage(optionsPage);
+})
+
+yesButton.addEventListener('click', () => {
+    nextTranslation();
+})
+
+noButton.addEventListener('click', () => {
+    nextTranslation();
+})
+
+learnExitButton.addEventListener('click', () => {
+    showPage(mainPage);
+    timer.stop();
 })
 
 exitButtons.forEach((exitButton) => {
