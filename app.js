@@ -47,6 +47,7 @@ fadeIn(headerDescription, 500);
     ------------------------------------------------------------*/
 
 const timer = new Timer(document.querySelector('#timer'));
+const counter = document.querySelector('#counter');
 const englishWord = document.querySelector('#english-translation');
 const spanishWord = document.querySelector('#spanish-translation');
 let translations = null;
@@ -88,6 +89,7 @@ async function getJSON() {
 
 async function startGame() {
     translations = await getJSON();
+    counter.textContent = '0/0';
     nextTranslation();
 }
 
@@ -103,6 +105,18 @@ function nextTranslation() {
     englishWord.textContent = translation[0];
     spanishWord.textContent = translation[1];
     translations.splice(index, 1);
+}
+
+function updateCounter(correct) {
+    score = counter.textContent.split('/');
+
+    if (correct) {
+        score[0] = parseInt(score[0]) + 1;
+    }
+
+    score[1] = parseInt(score[1]) + 1;
+
+    counter.textContent = score.join('/');
 }
 
 function showPage(page) {
@@ -147,10 +161,12 @@ optionsButton.addEventListener('click', () => {
 
 yesButton.addEventListener('click', () => {
     nextTranslation();
+    updateCounter(true);
 })
 
 noButton.addEventListener('click', () => {
     nextTranslation();
+    updateCounter(false);
 })
 
 learnExitButton.addEventListener('click', () => {
