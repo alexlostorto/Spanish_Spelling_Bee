@@ -50,10 +50,11 @@ const timer = new Timer(document.querySelector('#timer'));
 const counter = document.querySelector('#counter');
 const englishWord = document.querySelector('#english-translation');
 const spanishWord = document.querySelector('#spanish-translation');
+const statsMessage = document.querySelector('.stats .header .header-description');
 let translations = null;
 
 // Buttons
-const playButton = document.querySelector('#play-button');
+const playButtons = document.querySelectorAll('#play-button');
 const setsButton = document.querySelector('#sets-button');
 const optionsButton = document.querySelector('#options-button');
 const exitButtons = document.querySelectorAll('.exit-button');
@@ -95,7 +96,8 @@ async function startGame() {
 
 function nextTranslation() {
     if (translations.length == 0) {
-        showPage(mainPage);
+        showPage(statsPage);
+        displayStats();
         timer.stop();
         return
     }
@@ -117,6 +119,11 @@ function updateCounter(correct) {
     score[1] = parseInt(score[1]) + 1;
 
     counter.textContent = score.join('/');
+}
+
+function displayStats() {
+    score = counter.textContent.split('/');
+    statsMessage.textContent = `You got ${score[0]} correct and ${parseInt(score[1]) - parseInt(score[0])} wrong.`;
 }
 
 function showPage(page) {
@@ -141,16 +148,6 @@ function showPage(page) {
     |
     ------------------------------------------------------------*/
 
-playButton.addEventListener('click', async () => {
-    showPage(learnPage);
-    startGame();
-    let finished = await timer.start(60);
-
-    if (finished) {
-        showPage(mainPage);
-    }
-})
-
 setsButton.addEventListener('click', () => {
     showPage(setsPage);
 })
@@ -174,7 +171,20 @@ learnExitButton.addEventListener('click', () => {
     timer.stop();
 })
 
-exitButtons.forEach((exitButton) => {
+playButtons.forEach(playButton => {
+    playButton.addEventListener('click', async () => {
+        showPage(learnPage);
+        startGame();
+        let finished = await timer.start(60);
+    
+        if (finished) {
+            showPage(statsPage);
+            displayStats();
+        }
+    })
+})
+
+exitButtons.forEach(exitButton => {
     exitButton.addEventListener('click', () => {
         showPage(mainPage);
     })

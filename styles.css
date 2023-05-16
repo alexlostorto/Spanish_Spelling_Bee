@@ -193,6 +193,11 @@
     border-bottom-left-radius: 2rem;
 }
 
+.stats .header .header-text,
+.stats .header .header-description {
+    animation: fadeIn 3s;
+}
+
 /*--------------------------------------------------------------
 8.0 MEDIA
 --------------------------------------------------------------*/
