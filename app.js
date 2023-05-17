@@ -46,12 +46,17 @@ fadeIn(headerDescription, 500);
     |
     ------------------------------------------------------------*/
 
+// Game variables
+let translations = null;
+let correct = 0;
+let wrong = 0;
+
+// Learn page
 const timer = new Timer(document.querySelector('#timer'));
 const counter = document.querySelector('#counter');
 const englishWord = document.querySelector('#english-translation');
 const spanishWord = document.querySelector('#spanish-translation');
 const statsMessage = document.querySelector('.stats .header .header-description');
-let translations = null;
 
 // Buttons
 const playButtons = document.querySelectorAll('#play-button');
@@ -89,6 +94,9 @@ async function getJSON() {
 }
 
 async function startGame() {
+    correct = 0;
+    wrong = 0;
+    updateCounter();
     translations = await getJSON();
     counter.textContent = '0/0';
     nextTranslation();
@@ -109,21 +117,12 @@ function nextTranslation() {
     translations.splice(index, 1);
 }
 
-function updateCounter(correct) {
-    score = counter.textContent.split('/');
-
-    if (correct) {
-        score[0] = parseInt(score[0]) + 1;
-    }
-
-    score[1] = parseInt(score[1]) + 1;
-
-    counter.textContent = score.join('/');
+function updateCounter() {
+    counter.textContent = `${correct}/${wrong + correct}`;
 }
 
 function displayStats() {
-    score = counter.textContent.split('/');
-    statsMessage.textContent = `You got ${score[0]} correct and ${parseInt(score[1]) - parseInt(score[0])} wrong.`;
+    statsMessage.textContent = `You got ${correct} correct and ${wrong} wrong.`;
 }
 
 function showPage(page) {
@@ -157,13 +156,15 @@ optionsButton.addEventListener('click', () => {
 })
 
 yesButton.addEventListener('click', () => {
+    correct ++;
     nextTranslation();
-    updateCounter(true);
+    updateCounter();
 })
 
 noButton.addEventListener('click', () => {
+    wrong ++;
     nextTranslation();
-    updateCounter(false);
+    updateCounter();
 })
 
 learnExitButton.addEventListener('click', () => {
