@@ -23,7 +23,8 @@
     text-align: center;
 }
 
-#play-button {
+#play-button,
+#save-button {
     margin-top: 7vh;
 }
 
@@ -198,6 +199,25 @@
     animation: fadeIn 3s;
 }
 
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input input {
+    font-size: 100%;
+}
+
+input[type=number] {
+    padding-left: 25px;
+}
+
+input[type=number]:focus {
+    border: 2px solid orange;
+}
+
 /*--------------------------------------------------------------
 8.0 MEDIA
 --------------------------------------------------------------*/
@@ -260,5 +280,13 @@
     .answers button {
         flex: 1;
         height: 5rem;
+    }
+
+    input[type=number] {
+        padding-left: 10px;
+    }
+
+    .options.page header {
+        margin-top: 0;
     }
 }
