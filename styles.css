@@ -199,6 +199,10 @@
     animation: fadeIn 3s;
 }
 
+.options .header {
+    padding-top: 0;
+}
+
 .input {
     display: flex;
     flex-direction: column;
