@@ -47,6 +47,7 @@ fadeIn(headerDescription, 500);
     ------------------------------------------------------------*/
 
 // Game variables
+let timerDuration = 60;
 let translations = null;
 let correct = 0;
 let wrong = 0;
@@ -57,6 +58,10 @@ const counter = document.querySelector('#counter');
 const englishWord = document.querySelector('#english-translation');
 const spanishWord = document.querySelector('#spanish-translation');
 const statsMessage = document.querySelector('.stats .header .header-description');
+
+// Options page
+const durationInput = document.querySelector('#timer-duration');
+const saveButton = document.querySelector('#save-button');
 
 // Buttons
 const playButtons = document.querySelectorAll('#play-button');
@@ -176,7 +181,7 @@ playButtons.forEach(playButton => {
     playButton.addEventListener('click', async () => {
         showPage(learnPage);
         startGame();
-        let finished = await timer.start(60);
+        let finished = await timer.start(timerDuration);
     
         if (finished) {
             showPage(statsPage);
@@ -189,4 +194,9 @@ exitButtons.forEach(exitButton => {
     exitButton.addEventListener('click', () => {
         showPage(mainPage);
     })
+})
+
+saveButton.addEventListener('click', () => {
+    timerDuration = durationInput.value;
+    showPage(mainPage);
 })
