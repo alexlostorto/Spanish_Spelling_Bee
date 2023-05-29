@@ -46,12 +46,6 @@ fadeIn(headerDescription, 500);
     |
     ------------------------------------------------------------*/
 
-// Game variables
-let timerDuration = 60;
-let translations = null;
-let correct = 0;
-let wrong = 0;
-
 // Learn page
 const timer = new Timer(document.querySelector('#timer'));
 const counter = document.querySelector('#counter');
@@ -86,6 +80,11 @@ const pages = [mainPage, learnPage, statsPage, setsPage, optionsPage];
     | 2.2 VARIABLES
     |
     ------------------------------------------------------------*/
+
+let timerDuration = 60;
+let translations = null;
+let correct = 0;
+let wrong = 0;
 
     /*------------------------------------------------------------
     |

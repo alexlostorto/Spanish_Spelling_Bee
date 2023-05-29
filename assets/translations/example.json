@@ -1,8 +1,0 @@
-{
-    "1":  {"name": "Example", "translations": [
-            ["hello", "hola"],
-            ["tree", "arból"],
-            ["cat", "gato"]
-        ]
-    }
-}
