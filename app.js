@@ -93,7 +93,7 @@ let wrong = 0;
     ------------------------------------------------------------*/
 
 async function getJSON() {
-    translations = await(await fetch('assets/translations/example.json')).json();
+    translations = await(await fetch('assets/translations/translations.json')).json();
     return translations[1].translations
 }
 
