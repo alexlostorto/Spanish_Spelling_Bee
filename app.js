@@ -92,16 +92,16 @@ let wrong = 0;
     |
     ------------------------------------------------------------*/
 
-async function getJSON() {
+async function getJSON(id) {
     translations = await(await fetch('assets/translations/translations.json')).json();
-    return translations[1].translations
+    return translations[id].translations
 }
 
 async function startGame() {
     correct = 0;
     wrong = 0;
     updateCounter();
-    translations = await getJSON();
+    translations = await getJSON(2);
     counter.textContent = '0/0';
     nextTranslation();
 }
@@ -199,3 +199,10 @@ saveButton.addEventListener('click', () => {
     timerDuration = durationInput.value;
     showPage(mainPage);
 })
+
+document.onkeydown = function(e) {
+    e = e || window.event;
+    if (e.keyCode == 27) {
+        showPage(mainPage);
+    }
+};
