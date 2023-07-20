@@ -10,7 +10,7 @@
 
 This is a **single/multiplayer** game used to improve the player's ability to translate and spell spanish words. This game is a test of concentration, speed, memory and translation ability.
 
-Click [**here**](https://alexlostorto.github.io/spanish-spelling-bee/) to visit the **Spanish Spelling Bee** website and copy the code.
+Click [**here**](https://alexlostorto.github.io/spanish-spelling-bee/) to visit the **Spanish Spelling Bee** website.
 
 ```python
 # List of programs
